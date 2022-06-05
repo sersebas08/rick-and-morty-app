@@ -4,6 +4,6 @@
     box-sizing: border-box;
 }
 main {
-    background-color: yellow;
+    background-color: green;
     display: flex;
 }
