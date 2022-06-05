@@ -5,7 +5,7 @@ importScripts(
 );
 
 if (workbox){
-    console.log('carajo, cargo Workbox');
+    console.log('Workbox Cargado');
 
     self.addEventListener("message", (event)=>{
         if(event.data && event.data.type === "SKIP_WAITING"){
@@ -20,5 +20,5 @@ if (workbox){
         })
     )
 } else {
-    console.log('Ya sacaste la cerveza del freezer?');
+    console.log('Cargando...');
 }

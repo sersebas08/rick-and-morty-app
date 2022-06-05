@@ -1,23 +1,22 @@
 const main = document.querySelector('#main');
 const resultado = document.querySelector('#resultado');
+const estado = document.querySelector('#estado');
 
 window.addEventListener('offline', event => {
-    console.log('Estoy Offline!!');
-    /*navbar.classList.add('bg-dark');*/
-    main.style.backgroundColor = 'red';
-    resultado.classList.add('none');
+    estado.innerHTML = 'Estas navegando sin conexion a la red';
+    estado.style.backgroundColor = 'red';
+
 })
 
 window.addEventListener('online', event => {
-    console.log('Estoy online!!');
-    /*navbar.classList.remove('bg-dark');*/
+    estado.innerHTML = '';
 })
 
 if (!navigator.onLine){
-    console.log('Estoy sin conexion, rey!');
+    console.log('Sin conexion');
 }
 
-main.style.backgroundColor = 'orange';
+
 
 function buscarSimpson() {
 
@@ -38,7 +37,7 @@ function leerPersonajes(data){
         name:  data[0].name.first,
         images: data[0].images.main
     };
-    resultado.innerHTML = `<div class="">
+    resultado.innerHTML = `<div class="phil">
                                 <p>Nombre: ${dataAppi.name}</p>
                                 <img src="${dataAppi.images}"  alt="iconos_del_tiempo_actual">
                                   
