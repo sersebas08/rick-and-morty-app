@@ -5,7 +5,7 @@ importScripts(
 );
 
 if (workbox){
-    console.log('Que bien, cargo Workbox');
+    console.log('carajo, cargo Workbox');
 
     self.addEventListener("message", (event)=>{
         if(event.data && event.data.type === "SKIP_WAITING"){

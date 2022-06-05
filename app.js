@@ -1,7 +1,21 @@
 const main = document.querySelector('#main');
 const resultado = document.querySelector('#resultado');
 
+window.addEventListener('offline', event => {
+    console.log('Estoy Offline!!');
+    /*navbar.classList.add('bg-dark');*/
+    main.style.backgroundColor = 'red';
+    resultado.classList.add('none');
+})
 
+window.addEventListener('online', event => {
+    console.log('Estoy online!!');
+    /*navbar.classList.remove('bg-dark');*/
+})
+
+if (!navigator.onLine){
+    console.log('Estoy sin conexion, rey!');
+}
 
 main.style.backgroundColor = 'orange';
 
