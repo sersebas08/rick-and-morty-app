@@ -3,7 +3,100 @@
     padding: 0;
     box-sizing: border-box;
 }
-main {
-    background-color: green;
+#main {
+    background-color: yellow;
     display: flex;
+    flex-wrap: wrap;
+}
+#main > h2 {
+    width: 100%;
+    text-align: center;
+}
+.img {
+    width: 75%;
+    margin: auto;
+}
+.navbar {
+    background: yellow;
+}
+.phil {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.personajes {
+    margin: 0.5rem;
+    background: aliceblue;
+    padding: 0.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.personajes__div {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+.personajes__div ul li {
+    list-style: none;
+}
+.btnPersonajes,
+.btnEpisodios,
+.btnHome {
+    border: 1px solid grey;
+    cursor: pointer;
+}
+.divBotones {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+}
+.divBotones p {
+    padding: .5rem;
+}
+.form__input {
+    width: 75%;
+}
+.form__form {
+    display: flex;
+    justify-content: center;
+}
+.modalHombre {
+    position: fixed;
+    z-index: 1032;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0,0,0,.9);
+
+}
+#modal {
+    position: fixed;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    right: 0;
+    border-radius: 1em;
+    width: 1.5em;
+    height: 1.5em;
+    background-color: rgba(255, 255, 255, .9);
+    font-size: 1em;
+    font-weight: 400;
+    text-align: center;
+    color: #1A4A5E;
+    text-decoration: none;
+    margin: 0.5rem;
+}
+@media (min-width: 400px) and (max-width: 500px){
+    .personajes {
+        width: 50%;
+    }
+
 }

@@ -1,15 +1,43 @@
-const main = document.querySelector('#main');
-const resultado = document.querySelector('#resultado');
-const estado = document.querySelector('#estado');
+
+import CONST from "./js/constant.js";
+import {buscarEpisodios} from "./js/episodios.js";
+import {buscarPersonajes} from "./js/personajes.js";
+
+
+
+window.addEventListener('DOMContentLoaded', (e) => {
+    buscarEpisodios();
+    buscarPersonajes();
+});
+
+
+// botones del menu
+
+CONST.btnHome.addEventListener('click', () => {
+    CONST.divHome.classList.remove('hidden');
+    CONST.divPersonajes.classList.add('hidden');
+    CONST.divEpisodios.classList.add('hidden');
+})
+CONST.btnPersonajes.addEventListener('click', () => {
+    CONST.divPersonajes.classList.remove('hidden');
+    CONST.divEpisodios.classList.add('hidden');
+    CONST.divHome.classList.add('hidden');
+})
+CONST.btnEpisodios.addEventListener('click', () => {
+    CONST.divEpisodios.classList.remove('hidden');
+    CONST.divPersonajes.classList.add('hidden');
+    CONST.divHome.classList.add('hidden');
+})
+
 
 window.addEventListener('offline', event => {
-    estado.innerHTML = 'Estas navegando sin conexion a la red';
-    estado.style.backgroundColor = 'red';
+    CONST.estado.innerHTML = 'Estas navegando sin conexion a la red';
+    CONST.estado.style.backgroundColor = 'red';
 
 })
 
 window.addEventListener('online', event => {
-    estado.innerHTML = '';
+    CONST.estado.innerHTML = '';
 })
 
 if (!navigator.onLine){
@@ -18,30 +46,31 @@ if (!navigator.onLine){
 
 
 
-function buscarSimpson() {
+// ventana modal
+/*function modal(){
+    console.log('hasta llego: ' );
 
-    fetch(`https://api.sampleapis.com/futurama/characters`)
-        .then(function(response){
-            return response.json();})
-        .then(function (data){
-            leerPersonajes(data);
-            console.log('simpson data: ', data);
-        })
-        .catch(function (err){
-            console.log("este es el error", err);})
+    /!* console.log('esta es la data de cafeteria: ' , );*!/
+    ventanaHombres.classList.add("modalHombre");
+    ventanaHombres.classList.remove("hidden");
+
+
+    let a = document.createElement('a');
+    a.href = '#';
+    a.id = 'modal'
+    a.innerHTML = 'X';
+    a.onclick = function () {
+
+        ventanaHombres.classList.add("hidden");
+        ventanaHombres.classList.remove("modalHombre");
+        return false;
+    }
+    ventanaHombres.appendChild(a);
+    console.log('hola mundo')
+
 }
+let ventanaHombres = document.querySelector('#ventanaHombres');
+let button = document.querySelector('.button');
+button.onclick = modal;*/
 
-function leerPersonajes(data){
 
-    let dataAppi = {
-        name:  data[0].name.first,
-        images: data[0].images.main
-    };
-    resultado.innerHTML = `<div class="phil">
-                                <p>Nombre: ${dataAppi.name}</p>
-                                <img src="${dataAppi.images}"  alt="iconos_del_tiempo_actual">
-                                  
-                            </div>`;
-}
-
-buscarSimpson();
