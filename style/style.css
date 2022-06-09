@@ -96,7 +96,7 @@
 }
 @media (min-width: 400px) and (max-width: 500px){
     .personajes {
-        width: 50%;
+        width: 100%;
     }
 
 }

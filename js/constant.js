@@ -11,6 +11,7 @@ const btnHome = document.querySelector('.btnHome');
 const btnPersonajes = document.querySelector('.btnPersonajes');
 const btnEpisodios = document.querySelector('.btnEpisodios');
 
+const philip = document.querySelector('#philip');
 
 const CONST = {
     divHome,
@@ -23,7 +24,8 @@ const CONST = {
     input,
     btnHome,
     btnPersonajes,
-    btnEpisodios
+    btnEpisodios,
+    philip
 }
 
 export default CONST;
