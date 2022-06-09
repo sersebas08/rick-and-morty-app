@@ -7,7 +7,7 @@ export function buscarPersonajes() {
             return response.json();})
         .then(function (data){
             leerPersonajes(data);
-            console.log('simpson data: ', data);
+           /* console.log('simpson data: ', data);*/
         })
         .catch(function (err){
             console.log("este es el error", err);})
@@ -16,7 +16,7 @@ export function buscarPersonajes() {
 function leerPersonajes(data){
     let images = '';
     for (let i = 0; i < data.length; i++) {
-        console.log('recorro la data: ', data[i].name)
+      /*  console.log('recorro la data: ', data[i].name)*/
         images += `<div class="personajes">
                         <img class="img" src="${data[i].images.main}" />
                         <div class="personajes__div">

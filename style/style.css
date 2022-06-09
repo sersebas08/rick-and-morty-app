@@ -1,16 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Kdam+Thmor+Pro&display=swap');
+@font-face {
+    font-family: futurama;
+    src: url(../letras/fr-bold.ttf);
+}
+/*@font-face {
+    font-family: futuramaTitle;
+    src: url(../letras/fr-title.ttf);
+}*/
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+#divHome h3 {
+    font-family: futurama;
+    text-align: center;
+    font-size: 2rem;
+}
 #main {
-    background-color: yellow;
+   /* background-color: yellow;*/
     display: flex;
     flex-wrap: wrap;
 }
 #main > h2 {
     width: 100%;
     text-align: center;
+    font-size: 0;
+    background-image: url(../img/logo.png);
+    background-size: 19rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 6rem;
+    margin: 1rem;
+
 }
 .img {
     width: 75%;
@@ -37,12 +59,25 @@
 }
 .personajes__div ul li {
     list-style: none;
+    font-size: .8rem;
+}
+.personajes__div ul .uno {
+    font-family: futurama;
 }
 .btnPersonajes,
 .btnEpisodios,
 .btnHome {
     border: 1px solid grey;
     cursor: pointer;
+}
+.btnMeGusta,
+.btnFavorito,
+.favorito,
+.perri {
+    cursor: pointer;
+}
+.divSelect {
+
 }
 .divBotones {
     width: 100%;
@@ -52,7 +87,7 @@
     bottom: 0;
     left: 0;
     position: fixed;
-    background: yellow;
+    background: #c5c52c;
 }
 .divBotones p {
     padding: .5rem;
