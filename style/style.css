@@ -12,6 +12,14 @@
     padding: 0;
     box-sizing: border-box;
 }
+#estado {
+    position: absolute;
+    width: 100%;
+    /* padding: 0.5rem; */
+    display: flex;
+    margin: auto;
+    justify-content: center;
+}
 #divHome h3 {
     font-family: futurama;
     text-align: center;
@@ -39,12 +47,13 @@
     margin: auto;
 }
 .navbar {
-    background: yellow;
+    background: #00b5cc;
 }
 .phil {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin: 2rem 0.5rem;
 }
 .personajes {
     margin: 0.5rem;
@@ -55,7 +64,7 @@
 }
 .personajes__div {
     display: grid;
-    grid-template-rows: 1fr 1fr;
+    /*grid-template-rows: 1fr 1fr;*/
 }
 .personajes__div ul li {
     list-style: none;
@@ -64,6 +73,7 @@
 .personajes__div ul .uno {
     font-family: futurama;
 }
+
 .btnPersonajes,
 .btnEpisodios,
 .btnHome {
@@ -77,8 +87,15 @@
     cursor: pointer;
 }
 .divSelect {
-
+    display: flex;
+    margin: .5rem;
 }
+/*.divSelect .btnMeGusta:hover {
+    font-size: 1.2rem;
+}*/
+
+
+
 .divBotones {
     width: 100%;
     display: grid;
@@ -87,7 +104,7 @@
     bottom: 0;
     left: 0;
     position: fixed;
-    background: #c5c52c;
+    background: #00b5cc;
 }
 .divBotones p {
     padding: .5rem;

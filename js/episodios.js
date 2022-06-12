@@ -1,11 +1,19 @@
 import CONST from "./constant.js";
 
 export const buscarEpisodios = (personaje) => `query {
-  Character(id: "${personaje}") {
-    name
-    images
-    occupation
-    age
+ characters( filter: { name: "${personaje}" }) {
+    results {
+      name
+      image
+      species
+      status
+      origin{
+        name
+      }
+      location {
+        name
+      }
+    }
   }
 }`
 
@@ -25,7 +33,7 @@ CONST.btn.addEventListener('click', () => {
             query: buscarEpisodios(valorImput)
         })
     }
-    fetch(`https://api.sampleapis.com/futurama/graphql?query=${buscarEpisodios(valorImput)}`, options)
+    fetch(`https://rickandmortyapi.com/graphql?query=${buscarEpisodios(valorImput)}`, options)
         .then(function(response){
             return response.json();})
         .then(function (data){
@@ -39,71 +47,78 @@ CONST.btn.addEventListener('click', () => {
 })
 
 function leerEpisodios(json){
-    console.log('el personaje: ', json.data.Character.name.first);
-    let pers = '';
+        /*console.log('el personaje: ', json.data.characters.results);*/
+        let pers = '';
 
-    const api = {
-        name: json.data.Character.name.first,
-        images: json.data.Character.images.main,
-        ocuppation: json.data.Character.occupation
+        let appi = json.data.characters.results;
+
+        for (let i = 0; i < appi.length; i++) {
+
+            pers += `<div class="personajes">
+                            <img class="img" src="${appi[i].image}" />
+                            <div class="personajes__div">
+                                <ul>
+                                    <li class="uno">Nombre</li>
+                                    <li>${appi[i].name}</li>
+                                    <li class="uno">Origen</li>
+                                    <li>${appi[i].origin.name}</li>
+                                    <li class="uno">Especie</li>
+                                    <li>${appi[i].species}</li>
+                                    <li class="uno">Status</li>
+                                    <li>${appi[i].status}</li>
+                                    <li class="uno">Planeta</li>
+                                    <li>${appi[i].location.name}</li>
+                                </ul>
+                                <div class="divSelect">
+                                    <p class="btnFavorito m-2"><i class="bi bi-star-fill mr-2 perri2"></i></p>
+                                    <p class="btnMeGusta m-2"><i class="bi bi-heart-fill mr-2 perri"></i></p>
+                                </div>
+                            </div>
+                        </div>`;
+
+            btn();
+        }
+
+        CONST.divBusqueda.innerHTML = `<div class="phil">${pers}</div>`;
+
+
+    function btn (){
+        const btnMeGusta = document.querySelector('.btnMeGusta');
+        const btnFavorito = document.querySelector('.btnFavorito');
+        const meGusta = document.querySelector('.perri');
+        const favorito = document.querySelector('.perri2');
+        let estado = 0;
+        let estadoFavorito = 0;
+        let contador = 0;
+
+        btnMeGusta.addEventListener('click', () => {
+            if (estado === 0){
+                meGusta.style.color = 'red';
+                estado = 1;
+                contador++;
+                /*CONST.estado.innerHTML = 'Me Gusta !!';
+                setTimeout(function vacio(){
+                    CONST.estado.innerHTML = '';
+                }, 4000);*/
+            } else {
+                meGusta.style.color = 'black';
+                estado = 0;
+                contador--;
+            }
+        });
+
+        btnFavorito.addEventListener('click', () => {
+            if (estadoFavorito === 0){
+                favorito.style.color = '#C5C52CFF';
+                estadoFavorito = 1;
+            } else {
+                favorito.style.color = 'black';
+                estadoFavorito = 0;
+            }
+        });
     }
 
-    /*for (let i = 0; i < data.length; i++) {*/
-   /*     console.log('recorro la data: ', data[i].name)*/
-        pers += `<div class="personajes">
-                        <img class="img" src="${api.images}" />
-                        <div class="personajes__div">
-                            <ul>
-                                <li class="uno">Nombre</li>
-                                <li>${api.name}</li>
-                                <li class="uno">Ocupacion</li>
-                                <li>${api.ocuppation}</li>
-                                <li class="uno">Especie</li>
-                                <li>${api.ocuppation}</li>
-                                <li class="uno">Edad</li>
-                                <li>${api.ocuppation}</li>
-                            </ul>
-                            <div class="divSelect">
-                                <p class="btnFavorito m-2"><i class="bi bi-star-fill mr-2 perri2"></i>Favorito</p>
-                                <p class="btnMeGusta m-2"><i class="bi bi-heart-fill mr-2 perri"></i>Me gusta</p>
-                            </div>
-                        </div>
-                    </div>`;
-   /* }*/
-    CONST.divBusqueda.innerHTML = `<div class="phil">${pers}</div>`;
 
-
-
-
-    const btnMeGusta = document.querySelector('.btnMeGusta');
-    const btnFavorito = document.querySelector('.btnFavorito');
-    const meGusta = document.querySelector('.perri');
-    const favorito = document.querySelector('.perri2');
-    let estado = 0;
-    let estadoFavorito = 0;
-    let contador = 0;
-
-    btnMeGusta.addEventListener('click', () => {
-        if (estado === 0){
-            meGusta.style.color = 'red';
-            estado = 1;
-            contador++;
-        } else {
-            meGusta.style.color = 'black';
-            estado = 0;
-            contador--;
-        }
-    });
-
-    btnFavorito.addEventListener('click', () => {
-        if (estadoFavorito === 0){
-            favorito.style.color = '#C5C52CFF';
-            estadoFavorito = 1;
-        } else {
-            favorito.style.color = 'black';
-            estadoFavorito = 0;
-        }
-    });
 
 
 }

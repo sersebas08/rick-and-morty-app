@@ -8,6 +8,7 @@ import {buscarPersonajes} from "./js/personajes.js";
 window.addEventListener('DOMContentLoaded', (e) => {
     buscarEpisodios();
     buscarPersonajes();
+
 });
 
 
@@ -32,7 +33,7 @@ CONST.btnEpisodios.addEventListener('click', () => {
 
 window.addEventListener('offline', event => {
     CONST.estado.innerHTML = 'Estas navegando sin conexion a la red';
-    CONST.estado.style.backgroundColor = 'red';
+    CONST.estado.style.backgroundColor = 'rgb(175 220 40)';
 
 })
 
