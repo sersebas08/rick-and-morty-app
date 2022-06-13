@@ -10,6 +10,18 @@ window.addEventListener('DOMContentLoaded', (e) => {
     buscarPersonajes();
 
 });
+// db
+/*
+var db, ul;
+
+function init(){
+    db = new Dexie("tp-2-pwa");
+
+    document.body.addEventListener('submit', onSubmit);
+    document.body.addEventListener('click', onClick);
+}*/
+
+
 
 
 // botones del menu

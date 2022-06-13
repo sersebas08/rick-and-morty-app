@@ -12,6 +12,11 @@
     padding: 0;
     box-sizing: border-box;
 }
+body {
+    background-image: url(../img/bg.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+}
 #estado {
     position: absolute;
     width: 100%;
@@ -39,15 +44,18 @@
     background-position: center;
     background-repeat: no-repeat;
     height: 6rem;
-    margin: 1rem;
+    margin: 5rem 1rem 1rem 1rem;
 
 }
 .img {
-    width: 75%;
+    width: 40%;
     margin: auto;
+    border-radius: 50%;
 }
 .navbar {
     background: #00b5cc;
+    position: fixed;
+    width: 100%;
 }
 .phil {
     display: flex;
@@ -57,18 +65,32 @@
 }
 .personajes {
     margin: 0.5rem;
-    background: aliceblue;
-    padding: 0.5rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    border: 1px solid #a6da2f;
+    background-color: #00b5cc75;
+    border-radius: 10px;
 }
 .personajes__div {
     display: grid;
     /*grid-template-rows: 1fr 1fr;*/
 }
+.personaje__h3 {
+    color: beige;
+    text-align: center;
+    font-size: 1.5rem;
+}
+.personajes__div ul {
+    text-align: center;
+
+}
+.personajes__div ul .liSpecie {
+    margin-top: 2rem;
+    font-size: 1.5rem;
+    background: cadetblue;
+}
 .personajes__div ul li {
     list-style: none;
-    font-size: .8rem;
+    color: beige;
+
 }
 .personajes__div ul .uno {
     font-family: futurama;
@@ -88,6 +110,7 @@
 }
 .divSelect {
     display: flex;
+    justify-content: end;
     margin: .5rem;
 }
 /*.divSelect .btnMeGusta:hover {
@@ -150,9 +173,19 @@
     text-decoration: none;
     margin: 0.5rem;
 }
-@media (min-width: 400px) and (max-width: 500px){
+@media (min-width: 401px) and (max-width: 500px){
     .personajes {
-        width: 100%;
+        width: 80%;
     }
 
+}
+@media (min-width: 501px) and (max-width: 600px){
+    .personajes {
+        width: 80%;
+    }
+    body {
+        background-image: url(../img/bg-02.jpg);
+        background-attachment: fixed;
+        background-size: cover;
+    }
 }
