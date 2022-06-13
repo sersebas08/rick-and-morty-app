@@ -44,13 +44,14 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     height: 6rem;
-    margin: 5rem 1rem 1rem 1rem;
+    margin: 6rem 1rem 1rem 1rem;
 
 }
 .img {
     width: 40%;
     margin: auto;
     border-radius: 50%;
+    border: 1px solid #a6da2f;
 }
 .navbar {
     background: #00b5cc;
@@ -81,7 +82,19 @@ body {
 }
 .personajes__div ul {
     text-align: center;
+    display: grid;
 
+    margin-top: 2rem;
+}
+.personajes__div .personajes__divUl {
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 2rem 1rem 1rem 1rem;
+
+}
+.personajes__div .personajes__divUl li {
+    font-size: .8rem;
 }
 .personajes__div ul .liSpecie {
     margin-top: 2rem;
@@ -97,6 +110,7 @@ body {
 }
 .personajes__div ul .uno {
     font-family: futurama;
+    margin: 0.2rem;
 }
 
 .btnPersonajes,

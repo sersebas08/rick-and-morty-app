@@ -28,12 +28,12 @@ function leerPersonajes(data){
                         <picture class="w-full p-3">
                           <source media="(min-width: 751px)" srcset="${appi[i].image}">
                           <source media="(min-width: 380px)" srcset="${appi[i].image}">
-                          <img src="${appi[i].image}" class="img rounded-full" alt="Mi imagen responsive">
+                          <img src="${appi[i].image}" class="img " alt="Mi imagen responsive">
                         </picture>
                         
                         <div class="personajes__div">
                             <ul>
-                                <li>Condicion: <span>${appi[i].status}</span></li>
+                                <li>${appi[i].status}</li>
                                 <li class="liSpecie">${appi[i].species}</li>
                                 <!--<li>Nombre</li>
                                 <li></li>

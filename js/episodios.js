@@ -48,9 +48,17 @@ function leerEpisodios(json){
     for (let i = 0; i < appi.length; i++) {
 
         pers += `<div class="personajes">
-                        <img class="img" src="${appi[i].image}" />
+                        <div class="divSelect">
+                            <p class="btnFavorito m-2"><i class="bi bi-star-fill mr-2 perri2"></i></p>
+                            <p class="btnMeGusta m-2"><i class="bi bi-heart-fill mr-2 perri"></i></p>
+                        </div>
+                       <picture class="w-full p-3">
+                          <source media="(min-width: 751px)" srcset="${appi[i].image}">
+                          <source media="(min-width: 380px)" srcset="${appi[i].image}">
+                          <img src="${appi[i].image}" class="img " alt="Mi imagen responsive">
+                        </picture>
                         <div class="personajes__div">
-                            <ul>
+                            <ul class="personajes__divUl">
                                 <li class="uno">Nombre</li>
                                 <li>${appi[i].name}</li>
                                 <li class="uno">Origen</li>
@@ -62,10 +70,7 @@ function leerEpisodios(json){
                                 <li class="uno">Planeta</li>
                                 <li>${appi[i].location.name}</li>
                             </ul>
-                            <div class="divSelect">
-                                <p class="btnFavorito m-2"><i class="bi bi-star-fill mr-2 perri2"></i></p>
-                                <p class="btnMeGusta m-2"><i class="bi bi-heart-fill mr-2 perri"></i></p>
-                            </div>
+                           
                         </div>
                     </div>`;
 
