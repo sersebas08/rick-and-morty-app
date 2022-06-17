@@ -49,9 +49,9 @@ function refreshView(){
         .then(function (todos){
             let html = '';
             for (let i=0; i < todos.length; i++){
-                html += `<h2><button id="${todos[i]._id}" class="btn btn-link bi bi-trash"></button>${todos[i].text}</h2>`;
+                html += `<h2 class="philipVersion"><button id="${todos[i]._id}" class="btn btn-link bi bi-trash"></button>${todos[i].text}</h2>`;
             }
-            CONST.philip.innerHTML = html;
+            CONST.philipVersion.innerHTML = html;
         })
 }
 

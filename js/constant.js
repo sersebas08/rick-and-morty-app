@@ -12,6 +12,7 @@ const btnPersonajes = document.querySelector('.btnPersonajes');
 const btnEpisodios = document.querySelector('.btnEpisodios');
 const url = "https://rickandmortyapi.com/api/character";
 const philip = document.querySelector('#philip');
+const philipVersion = document.querySelector('#philipVersion');
 
 const CONST = {
     divHome,
@@ -26,6 +27,7 @@ const CONST = {
     btnPersonajes,
     btnEpisodios,
     philip,
+    philipVersion,
     url
 }
 
