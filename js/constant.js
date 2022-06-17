@@ -10,7 +10,7 @@ const input = document.querySelector('#search');
 const btnHome = document.querySelector('.btnHome');
 const btnPersonajes = document.querySelector('.btnPersonajes');
 const btnEpisodios = document.querySelector('.btnEpisodios');
-
+const url = "https://rickandmortyapi.com/api/character";
 const philip = document.querySelector('#philip');
 
 const CONST = {
@@ -25,7 +25,8 @@ const CONST = {
     btnHome,
     btnPersonajes,
     btnEpisodios,
-    philip
+    philip,
+    url
 }
 
 export default CONST;

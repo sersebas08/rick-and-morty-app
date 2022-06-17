@@ -49,7 +49,7 @@ function leerEpisodios(json){
 
         pers += `<div class="personajes">
                         <div class="divSelect">
-                            <p class="btnFavorito m-2"><i class="bi bi-star-fill mr-2 perri2"></i></p>
+                            <button class="btnFavorito m-2" type="button"><i class="bi bi-star-fill mr-2 perri2"></i></button>
                             <p class="btnMeGusta m-2"><i class="bi bi-heart-fill mr-2 perri"></i></p>
                         </div>
                        <picture class="w-full p-3">
@@ -76,14 +76,53 @@ function leerEpisodios(json){
 
 
     }
-
     CONST.divBusqueda.innerHTML = `<div class="phil">${pers}</div>`;
 
 
 
 
 }
+/*const btnFavorito = document.querySelector('.btnFavorito');
+const favorito = document.querySelector('.perri2');
+let estadoFavorito = 0;
+btnFavorito.addEventListener('click', () => {
+if (estadoFavorito === 0){
+    favorito.style.color = '#C5C52CFF';
+    estadoFavorito = 1;
+} else {
+    favorito.style.color = 'black';
+    estadoFavorito = 0;
+}
+});*/
 
+
+/*export function btn (){
+    const btnMeGusta = document.querySelector('.btnMeGusta');
+
+    const meGusta = document.querySelector('.perri');
+
+    let estado = 0;
+
+    let contador = 0;
+
+   btnMeGusta.addEventListener('click', () => {
+        if (estado === 0){
+            meGusta.style.color = 'red';
+            estado = 1;
+            contador++;
+            /!*CONST.estado.innerHTML = 'Me Gusta !!';
+            setTimeout(function vacio(){
+                CONST.estado.innerHTML = '';
+            }, 4000);*!/
+        } else {
+            meGusta.style.color = 'black';
+            estado = 0;
+            contador--;
+        }
+   });
+
+
+}*/
 
 
 

@@ -2,7 +2,7 @@ import CONST from "./constant.js";
 
 export function buscarPersonajes() {
 
-    fetch(`https://rickandmortyapi.com/api/character`)
+    fetch(CONST.url)
         .then(function(response){
             return response.json();})
         .then(function (data){
@@ -15,9 +15,11 @@ export function buscarPersonajes() {
 
 function leerPersonajes(data){
     let appi = data.results;
-
+    console.log('esta es mi appi personajes ', appi);
     let images = '';
     for (let i = 0; i < appi.length; i++) {
+
+
       /*  console.log('recorro la data: ', data[i].name)*/
         images += `<div class="personajes">
                          <div class="divSelect">
@@ -50,40 +52,4 @@ function leerPersonajes(data){
     CONST.divPersonajes.innerHTML = `<div class="phil">${images}</div>`;
    /* btn();*/
 }
-/*
 
-export function btn (){
-    const btnMeGusta = document.querySelector('.btnMeGusta');
-    const btnFavorito = document.querySelector('.btnFavorito');
-    const meGusta = document.querySelector('.perri');
-    const favorito = document.querySelector('.perri2');
-    let estado = 0;
-    let estadoFavorito = 0;
-    let contador = 0;
-
-    btnMeGusta.addEventListener('click', () => {
-        if (estado === 0){
-            meGusta.style.color = 'red';
-            estado = 1;
-            contador++;
-            /!*CONST.estado.innerHTML = 'Me Gusta !!';
-            setTimeout(function vacio(){
-                CONST.estado.innerHTML = '';
-            }, 4000);*!/
-        } else {
-            meGusta.style.color = 'black';
-            estado = 0;
-            contador--;
-        }
-    });
-
-    btnFavorito.addEventListener('click', () => {
-        if (estadoFavorito === 0){
-            favorito.style.color = '#C5C52CFF';
-            estadoFavorito = 1;
-        } else {
-            favorito.style.color = 'black';
-            estadoFavorito = 0;
-        }
-    });
-}*/

@@ -64,7 +64,8 @@ body {
     justify-content: center;
     margin: 2rem 0.5rem;
 }
-.personajes {
+.personajes,
+#philip {
     margin: 0.5rem;
     border: 1px solid #a6da2f;
     background-color: #00b5cc75;
