@@ -71,6 +71,19 @@ body {
     background-color: #00b5cc75;
     border-radius: 10px;
 }
+.divSelect__h2 button {
+    color: darkred;
+}
+.divSelec__h2 button:hover {
+    color: #c96e6e;
+}
+
+#philipVersion {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
 .personajes__div {
     display: grid;
     /*grid-template-rows: 1fr 1fr;*/
@@ -122,6 +135,7 @@ body {
 }
 .btnMeGusta,
 .btnFavorito,
+.btnVerMas,
 .favorito,
 .perri {
     cursor: pointer;

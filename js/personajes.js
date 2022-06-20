@@ -7,24 +7,40 @@ export function buscarPersonajes() {
             return response.json();})
         .then(function (data){
             leerPersonajes(data);
-            console.log('simpson data: ', data);
+            /*console.log('simpson data: ', data);*/
         })
         .catch(function (err){
             console.log("este es el error", err);})
 }
+/*let estadoFavorito = 0;
+const btnFavorito = document.querySelector('.btnFavorito');
+btnFavorito.onclick = btn;
+const btn =  () => {
 
+    const favorito = document.querySelector('.perri2');
+
+    /!*btnFavorito.addEventListener('click', () => {*!/
+    if (estadoFavorito === 0){
+        favorito.style.color = '#C5C52CFF';
+        estadoFavorito = 1;
+    } else {
+        favorito.style.color = 'black';
+        estadoFavorito = 0;
+    }
+    /!*});*!/
+}*/
 function leerPersonajes(data){
     let appi = data.results;
     console.log('esta es mi appi personajes ', appi);
     let images = '';
+
     for (let i = 0; i < appi.length; i++) {
-
-
       /*  console.log('recorro la data: ', data[i].name)*/
         images += `<div class="personajes">
                          <div class="divSelect">
                             <p class="btnFavorito m-2"><i class="bi bi-star-fill mr-2 perri2"></i></p>
                             <p class="btnMeGusta m-2"><i class="bi bi-heart-fill mr-2 perri"></i></p>
+                            <p class="btnVerMas m-2"><i class="bi bi-eye-fill mr-2 perri3"></i></p>
                         </div>
                         <h3 class="personaje__h3">${appi[i].name}</h3>
                         <picture class="w-full p-3">
@@ -41,15 +57,16 @@ function leerPersonajes(data){
                                 <li></li>
                                 <li>Ciudad</li>
                                 <li>${appi[i].location.name}</li>-->
-                                
-                                
                             </ul>
                            
                         </div>
                     </div>`;
 
     }
-    CONST.divPersonajes.innerHTML = `<div class="phil">${images}</div>`;
-   /* btn();*/
+    CONST.divVista.innerHTML = `<div class="phil">${images}</div>`;
+
+  /*  btn();*/
 }
+
+
 

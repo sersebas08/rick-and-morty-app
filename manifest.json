@@ -1,32 +1,32 @@
 {
-    "theme_color": "#FFD90F",
-    "background_color": "#1e1b19",
+    "theme_color": "#357af6",
+    "background_color": "#35f6c3",
     "display": "standalone",
     "scope": "/",
-    "start_url": "/index.html",
-    "name": "tp-2-MVP",
-    "short_name": "app-simpson",
-    "description": "app-simpson",
+    "start_url": "/",
+    "name": "rickMorty",
+    "short_name": "rick-morty-app",
     "icons": [
         {
-            "src": "icon/icon-192x192.png",
+            "src": "/icon-192x192.png",
             "sizes": "192x192",
             "type": "image/png"
         },
         {
-            "src": "icon/icon-256x256.png",
+            "src": "/icon-256x256.png",
             "sizes": "256x256",
             "type": "image/png"
         },
         {
-            "src": "icon/icon-384x384.png",
+            "src": "/icon-384x384.png",
             "sizes": "384x384",
             "type": "image/png"
         },
         {
-            "src": "icon/icon-512x512.png",
+            "src": "/icon-512x512.png",
             "sizes": "512x512",
             "type": "image/png"
         }
-    ]
+    ],
+    "description": "app-morty"
 }

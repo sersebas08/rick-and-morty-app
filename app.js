@@ -1,59 +1,24 @@
 
 import CONST from "./js/constant.js";
-import {buscarEpisodios} from "./js/episodios.js";
+/*import {buscarEpisodios} from "./js/episodios.js";*/
+import {leerPersonajesNombre} from "./js/episodios.js";
 import {buscarPersonajes} from "./js/personajes.js";
+import {buscarPersonajesNombre} from "./js/buscarPersonajes.js";
+import {init} from "./js/dexie.js";
+/*import {verEpisodios} from "./js/episodios.js";*/
 /*import {btn} from "./js/episodios.js";*/
 
 
 window.addEventListener('DOMContentLoaded', (e) => {
-    buscarEpisodios();
+   /* buscarEpisodios();*/
+    buscarPersonajesNombre();
     buscarPersonajes();
+    leerPersonajesNombre();
+   /* verEpisodios();*/
    /* btn();*/
     init();
 });
-// db
-let db;
 
-function init(){
-    db = new Dexie("tp-2-pwa");
-    /*CONST.input = '';
-    CONST.philip = '';*/
-    document.body.addEventListener('submit', onSubmit);
-    document.body.addEventListener('click', onClick);
-
-    db.version(1).stores({todo: '_id'});
-    db.open()
-        .then(refreshView);
-}
-
-function onSubmit(e){
-    e.preventDefault();
-   console.log('evento: ', e);
-   db.todo.put({ text: CONST.input.value, _id: String(Date.now())})
-       .then(function (){
-           CONST.input.value = '';
-       })
-       .then(refreshView)
-}
-function onClick(e){
-    let id;
-    if(e.target.hasAttributes('id') && e.target.classList.contains('bi-trash')){
-        e.preventDefault();
-        id = e.target.getAttribute("id");
-        db.todo.where('_id').equals(id).delete()
-            .then(refreshView)
-    }
-}
-function refreshView(){
-    return db.todo.toArray()
-        .then(function (todos){
-            let html = '';
-            for (let i=0; i < todos.length; i++){
-                html += `<h2 class="philipVersion"><button id="${todos[i]._id}" class="btn btn-link bi bi-trash"></button>${todos[i].text}</h2>`;
-            }
-            CONST.philipVersion.innerHTML = html;
-        })
-}
 
 
 // botones del menu

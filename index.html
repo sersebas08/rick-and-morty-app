@@ -39,10 +39,10 @@
                         <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Personajes </a>
+                        <a class="nav-link" href="#">Episodios </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Episodios</a>
+                        <a class="nav-link" href="#">Personajes</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link disabled" href="#">Games</a>
@@ -60,8 +60,8 @@
 
                 <div class="divBotones">
                     <p class="btnHome">Home</p>
-                    <p class="btnPersonajes">Personajes</p>
-                    <p class="btnEpisodios">Episodios</p>
+                    <p class="btnPersonajes">Episodios</p>
+                    <p class="btnEpisodios">Personajes</p>
                 </div>
 
         </section>
@@ -71,9 +71,18 @@
                 <h4>Favoritos</h4>
                 <div id="philipVersion"></div>
             </div>
+            <div id="divVista"></div>
         </div>
 
-        <div id="divPersonajes" class="hidden"></div>
+        <div id="divPersonajes" class="hidden">
+            <div class="form">
+                <form class="form__form form-group my-2 my-lg-0">
+                    <input class="form-control form__input mr-sm-2 w-75" type="search" placeholder="Search" aria-label="Search" id="searchs" />
+                    <button class="btn btn-outline-success my-sm-0" type="submit" id="sendButtons">Buscar</button>
+                </form>
+            </div>
+            <div id="vistaEpisodios"></div>
+        </div>
         <div id="divEpisodios" class="hidden">
             <div class="form">
                 <form class="form__form form-group my-2 my-lg-0">
@@ -88,7 +97,7 @@
 
     </main>
     <script src="app.js" type="module"></script>
-    <script src="js/register-sw.js"></script>
+    <script src="./js/register-sw.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
             integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
     </script>
