@@ -4,7 +4,7 @@ import CONST from "./js/constant.js";
 import {leerPersonajesNombre} from "./js/episodios.js";
 import {buscarPersonajes} from "./js/personajes.js";
 import {buscarPersonajesNombre} from "./js/buscarPersonajes.js";
-import {init} from "./js/dexie.js";
+import {init} from "./js/personajes.js";
 /*import {verEpisodios} from "./js/episodios.js";*/
 /*import {btn} from "./js/episodios.js";*/
 

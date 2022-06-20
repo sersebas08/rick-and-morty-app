@@ -29,6 +29,7 @@ body {
     font-family: futurama;
     text-align: center;
     font-size: 2rem;
+    color: #00b5cc;
 }
 #main {
    /* background-color: yellow;*/
@@ -66,6 +67,7 @@ body {
 }
 .personajes,
 .philipVersion {
+    width: 25%;
     margin: 0.5rem;
     border: 1px solid #a6da2f;
     background-color: #00b5cc75;
@@ -214,6 +216,17 @@ body {
 @media (min-width: 501px) and (max-width: 600px){
     .personajes {
         width: 80%;
+    }
+    body {
+        background-image: url(../img/bg-02.jpg);
+        background-attachment: fixed;
+        background-size: cover;
+    }
+}
+
+@media (min-width: 1201px) {
+    .personajes {
+        width: 20%;
     }
     body {
         background-image: url(../img/bg-02.jpg);
