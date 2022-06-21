@@ -3,6 +3,7 @@ import CONST from "./constant.js";
 export const buscarPersonajesNombres = () => `query {
  characters( filter: { name: "" }) {
     results {
+      id  
       name
       image
       species
@@ -44,29 +45,39 @@ function leerPersonajes(data){
     let images = '';
 
     for (let i = 0; i < appi.length; i++) {
-        images += `<div class="personajes">
-                         <div class="divSelect">
-                            <p class="btnFavorito m-2" data-name="${appi[i].name}"><i class="bi bi-star-fill mr-2 perri2"></i></p>
-                            <p class="btnMeGusta m-2"><i class="bi bi-heart-fill mr-2 perri"></i></p>
-                            <p class="btnVerMas m-2"><i class="bi bi-eye-fill mr-2 perri3"></i></p>
+        images += `<div class="">
+                        <div class="personajes">
+                            <picture class="w-9/12 p-2">
+                              <source media="(min-width: 751px)" srcset="${appi[i].image}">
+                              <source media="(min-width: 380px)" srcset="${appi[i].image}">
+                              <img src="${appi[i].image}" class="img " alt="Mi imagen responsive">
+                            </picture>
+                             <div class="divSelect">
+                             <h3 class="personaje__h3">${appi[i].name}</h3>
+                                 <div class="divSelec__divBotones">
+                                    <p class="btnFavorito m-2" data-name="${appi[i].name}"><i class="bi bi-star-fill mr-2 perri2"></i></p>
+                                    <p class="btnMeGusta m-2"><i class="bi bi-heart-fill mr-2 perri"></i></p>
+                                    <p class="btnVerMas m-2"><i class="bi bi-eye-fill mr-2 perri3"></i></p>
+                                </div>
+                            </div>
                         </div>
-                        <h3 class="personaje__h3">${appi[i].name}</h3>
-                        <picture class="w-full p-3">
-                          <source media="(min-width: 751px)" srcset="${appi[i].image}">
-                          <source media="(min-width: 380px)" srcset="${appi[i].image}">
-                          <img src="${appi[i].image}" class="img " alt="Mi imagen responsive">
-                        </picture>
-                        
-                        <div class="personajes__div">
+                        <div class="personajes__div hidden">
+                            <picture class="w-9/12 p-2">
+                              <source media="(min-width: 751px)" srcset="${appi[i].image}">
+                              <source media="(min-width: 380px)" srcset="${appi[i].image}">
+                              <img src="${appi[i].image}" class="img " alt="Mi imagen responsive">
+                            </picture>
                             <ul>
+                                <li>Estado</li>
                                 <li>${appi[i].status}</li>
-                                <li class="liSpecie">${appi[i].species}</li>
-                                <!--<li>Nombre</li>
-                                <li></li>
+                                <li>Especie</li>
+                                <li>${appi[i].species}</li>
+                                <li>Nombre</li>
+                                <li>${appi[i].name}</li>
                                 <li>Ciudad</li>
-                                <li>${appi[i].location.name}</li>-->
+                                <li>${appi[i].location.name}</li>
                             </ul>
-                           
+                            <button id="btnVolve">Volver</button>
                         </div>
                     </div>`;
 
@@ -77,6 +88,31 @@ function leerPersonajes(data){
     /*const favorito = document.querySelector('.perri2');*/
     let btnFavorito = document.querySelectorAll('.btnFavorito');
     let btnMegusta = document.querySelectorAll('.btnMeGusta');
+    let btnVerMas = document.querySelectorAll('.btnVerMas');
+    let personajes = document.querySelectorAll('.personajes');
+    let personajesDiv = document.querySelector('.personajes__div');
+    let btnVolve = document.querySelectorAll('#btnVolve');
+    btnVerMas.forEach(function (itemns) {
+        itemns.addEventListener('click', function (){
+            console.log('hola mundo');
+            personajes.forEach(function (ite){
+                ite.classList.add('hidden');
+                personajesDiv.classList.remove('hidden')
+            })
+
+
+            /*CONST.divPersonajes.classList.add('hidden');
+            CONST.divEpisodios.classList.add('hidden');*/
+        });
+    })
+    btnVolve.forEach(function (itenss){
+        itenss.addEventListener('click', function (){
+            personajes.forEach(function (ite){
+                ite.classList.remove('hidden');
+                personajesDiv.classList.add('hidden')
+            })
+        })
+    })
     btnFavorito.forEach(function (item){
         /*console.log('este es mi item: ', item);*/
         item.addEventListener('click', function (){

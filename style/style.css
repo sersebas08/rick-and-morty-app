@@ -28,8 +28,10 @@ body {
 #divHome h3 {
     font-family: futurama;
     text-align: center;
-    font-size: 2rem;
-    color: #00b5cc;
+    font-size: 1rem;
+    color: #d1f2f6;
+    display: flex;
+    align-items: center;
 }
 #main {
    /* background-color: yellow;*/
@@ -49,7 +51,7 @@ body {
 
 }
 .img {
-    width: 40%;
+    width: 100%;
     margin: auto;
     border-radius: 50%;
     border: 1px solid #a6da2f;
@@ -66,12 +68,14 @@ body {
     margin: 2rem 0.5rem;
 }
 .personajes,
+.personajes__div,
 .philipVersion {
-    width: 25%;
-    margin: 0.5rem;
     border: 1px solid #a6da2f;
     background-color: #00b5cc75;
     border-radius: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 1rem auto;
 }
 .divSelect__h2 button {
     color: darkred;
@@ -79,17 +83,20 @@ body {
 .divSelec__h2 button:hover {
     color: #c96e6e;
 }
-
+.divSelec__divBotones{
+    display: flex;
+    align-items: center;
+}
 #philipVersion {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 
 }
-.personajes__div {
+/*.personajes__div {
     display: grid;
-    /*grid-template-rows: 1fr 1fr;*/
-}
+    !*grid-template-rows: 1fr 1fr;*!
+}*/
 .personaje__h3 {
     color: beige;
     text-align: center;
@@ -144,8 +151,8 @@ body {
 }
 .divSelect {
     display: flex;
-    justify-content: end;
-    margin: .5rem;
+    margin: 0.5rem;
+    flex-wrap: wrap;
 }
 /*.divSelect .btnMeGusta:hover {
     font-size: 1.2rem;
