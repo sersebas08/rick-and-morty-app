@@ -27,16 +27,26 @@ CONST.btnHome.addEventListener('click', () => {
     CONST.divHome.classList.remove('hidden');
     CONST.divPersonajes.classList.add('hidden');
     CONST.divEpisodios.classList.add('hidden');
+    CONST.philips.classList.add('hidden')
 })
 CONST.btnPersonajes.addEventListener('click', () => {
     CONST.divPersonajes.classList.remove('hidden');
     CONST.divEpisodios.classList.add('hidden');
     CONST.divHome.classList.add('hidden');
+    CONST.philips.classList.add('hidden')
 })
 CONST.btnEpisodios.addEventListener('click', () => {
     CONST.divEpisodios.classList.remove('hidden');
     CONST.divPersonajes.classList.add('hidden');
     CONST.divHome.classList.add('hidden');
+    CONST.philips.classList.add('hidden')
+})
+CONST.btnFavoritos.addEventListener('click', () => {
+    CONST.divEpisodios.classList.add('hidden');
+    CONST.divPersonajes.classList.add('hidden');
+    CONST.divHome.classList.add('hidden');
+    CONST.philips.classList.remove('hidden')
+    /*CONST.divHome.classList.add('hidden');*/
 })
 
 

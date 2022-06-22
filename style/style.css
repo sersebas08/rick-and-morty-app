@@ -25,13 +25,11 @@ body {
     margin: auto;
     justify-content: center;
 }
-#divHome h3 {
+.divHome__h3 {
     font-family: futurama;
     text-align: center;
-    font-size: 1rem;
+    font-size: 2rem;
     color: #d1f2f6;
-    display: flex;
-    align-items: center;
 }
 #main {
    /* background-color: yellow;*/
@@ -77,6 +75,22 @@ body {
     grid-template-columns: 1fr 1fr;
     margin: 1rem auto;
 }
+
+/*-------------divSelect---------------*/
+.divSelect {
+    display: flex;
+    margin: 0.5rem;
+    flex-wrap: wrap;
+}
+.divSelect .personaje__h3 {
+    font-family: futurama;
+    text-align: center;
+    font-size: 1rem;
+    color: #d1f2f6;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
 .divSelect__h2 button {
     color: darkred;
 }
@@ -93,16 +107,21 @@ body {
     justify-content: center;
 
 }
+.philip__h4 {
+    font-family: futurama;
+    font-size: 1rem;
+    color: #d1f2f6;
+}
 /*.personajes__div {
     display: grid;
     !*grid-template-rows: 1fr 1fr;*!
 }*/
-.personaje__h3 {
+/*.personaje__h3 {
     color: beige;
     text-align: center;
     font-size: 1.5rem;
     font-weight: 700;
-}
+}*/
 .personajes__div ul {
     text-align: center;
     display: grid;
@@ -139,7 +158,7 @@ body {
 .btnPersonajes,
 .btnEpisodios,
 .btnHome {
-    border: 1px solid #a6da2f;
+   /* border: 1px solid #a6da2f;*/
     cursor: pointer;
 }
 .btnMeGusta,
@@ -149,11 +168,7 @@ body {
 .perri {
     cursor: pointer;
 }
-.divSelect {
-    display: flex;
-    margin: 0.5rem;
-    flex-wrap: wrap;
-}
+
 /*.divSelect .btnMeGusta:hover {
     font-size: 1.2rem;
 }*/
@@ -216,7 +231,7 @@ body {
 }
 @media (min-width: 401px) and (max-width: 500px){
     .personajes {
-        width: 80%;
+        width: 90%;
     }
 
 }

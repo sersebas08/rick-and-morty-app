@@ -18,9 +18,10 @@ import CONST from "./constant.js";
 }`*/
 
 
-CONST.btns.addEventListener('click', () => {
+CONST.btns.addEventListener('click', (e) => {
+    e.preventDefault();
 
-   /* const valorImput = CONST.inputs.value;*/
+    const valorImput = CONST.inputs.value;
     /*const options = {
         method: "post",
         headers: {
@@ -36,14 +37,13 @@ CONST.btns.addEventListener('click', () => {
         .then(function (data){
             leerPersonajesNombre(data);
             console.log('data episodiso: ', data)
-          /*  CONST.input.value = '';*/
+          console.log('dato: ', valorImput);
         })
         .catch(function (err){
             console.log("este es el error", err);})
 });
-
 export function leerPersonajesNombre(data){
-
+    console.log('hola mundo episodios')
 
     /*let video = '';*/
 

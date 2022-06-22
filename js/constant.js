@@ -13,9 +13,11 @@ const inputs = document.querySelector('#searchs');
 const btnHome = document.querySelector('.btnHome');
 const btnPersonajes = document.querySelector('.btnPersonajes');
 const btnEpisodios = document.querySelector('.btnEpisodios');
+const btnFavoritos = document.querySelector('.btnFavoritos');
 /*const url = "https://rickandmortyapi.com/api/character";*/
 const urls = "https://rickandmortyapi.com/api/episode";
 const philip = document.querySelector('#philip');
+const philips = document.querySelector('.philip');
 const divVista = document.querySelector('#divVista');
 const philipVersion = document.querySelector('#philipVersion');
 
@@ -34,7 +36,9 @@ const CONST = {
     btnHome,
     btnPersonajes,
     btnEpisodios,
+    btnFavoritos,
     philip,
+    philips,
     divVista,
     philipVersion,
     urls

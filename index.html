@@ -36,16 +36,16 @@
             <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+                        <a class="nav-link btnHome"  href="#">Home<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Episodios </a>
+                        <a class="nav-link btnEpisodios" href="#">Personajes </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Personajes</a>
+                        <a class="nav-link btnPersonajes" href="#">Episodios</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Games</a>
+                        <a class="nav-link  btnFavoritos" href="#">Favoritos</a>
                     </li>
                 </ul>
 
@@ -56,25 +56,26 @@
         <section id="main">
             <div class="hidden" id="ventanaHombres"></div>
             <div id="estado"></div>
+            <div id="estados"></div>
             <h2 class="p-2">Futurama</h2>
 
-                <div class="divBotones">
+                <!--<div class="divBotones">
                     <p class="btnHome">Home</p>
                     <p class="btnPersonajes">Episodios</p>
                     <p class="btnEpisodios">Personajes</p>
-                </div>
+                </div>-->
 
         </section>
-        <div id="divHome">
-            <h3>API</h3>
-            <div id="philip">
-                <h4>Favoritos</h4>
-                <div id="philipVersion"></div>
-            </div>
-            <div id="divVista"></div>
+        <div id="philip" class="philip hidden">
+            <h4 class="philip__h4">Favoritos</h4>
+            <div id="philipVersion"></div>
         </div>
-
+        <div id="divHome" class="divHome">
+            <h3 class="divHome__h3">Home</h3>
+            <div id="divVista" class="divVista"></div>
+        </div>
         <div id="divPersonajes" class="hidden">
+            <h3>Episodios de Rick and Morty</h3>
             <div class="form">
                 <form class="form__form form-group my-2 my-lg-0">
                     <input class="form-control form__input mr-sm-2 w-75" type="search" placeholder="Search" aria-label="Search" id="searchs" />

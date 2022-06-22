@@ -47,19 +47,20 @@ function leerPersonajes(data){
     for (let i = 0; i < appi.length; i++) {
         images += `<div class="">
                         <div class="personajes">
-                            <picture class="w-9/12 p-2">
-                              <source media="(min-width: 751px)" srcset="${appi[i].image}">
-                              <source media="(min-width: 380px)" srcset="${appi[i].image}">
-                              <img src="${appi[i].image}" class="img " alt="Mi imagen responsive">
-                            </picture>
+                             <picture class="w-9/12 p-2">
+                               <source media="(min-width: 751px)" srcset="${appi[i].image}">
+                               <source media="(min-width: 380px)" srcset="${appi[i].image}">
+                               <img src="${appi[i].image}" class="img " alt="Mi imagen responsive">
+                             </picture>
                              <div class="divSelect">
-                             <h3 class="personaje__h3">${appi[i].name}</h3>
+                                 <h3 class="personaje__h3">${appi[i].name}</h3>
+                                 <h4 class="personaje__h4">${appi[i].species}</h4>
                                  <div class="divSelec__divBotones">
-                                    <p class="btnFavorito m-2" data-name="${appi[i].name}"><i class="bi bi-star-fill mr-2 perri2"></i></p>
+                                    <p class="btnFavorito m-2"><i class="bi bi-star-fill mr-2 perri2"></i></p>
                                     <p class="btnMeGusta m-2"><i class="bi bi-heart-fill mr-2 perri"></i></p>
                                     <p class="btnVerMas m-2"><i class="bi bi-eye-fill mr-2 perri3"></i></p>
-                                </div>
-                            </div>
+                                 </div>
+                             </div>
                         </div>
                         <div class="personajes__div hidden">
                             <picture class="w-9/12 p-2">
@@ -92,7 +93,7 @@ function leerPersonajes(data){
     let personajes = document.querySelectorAll('.personajes');
     let personajesDiv = document.querySelector('.personajes__div');
     let btnVolve = document.querySelectorAll('#btnVolve');
-    btnVerMas.forEach(function (itemns) {
+   /* btnVerMas.forEach(function (itemns) {
         itemns.addEventListener('click', function (){
             console.log('hola mundo');
             personajes.forEach(function (ite){
@@ -101,18 +102,18 @@ function leerPersonajes(data){
             })
 
 
-            /*CONST.divPersonajes.classList.add('hidden');
-            CONST.divEpisodios.classList.add('hidden');*/
+            /!*CONST.divPersonajes.classList.add('hidden');
+            CONST.divEpisodios.classList.add('hidden');*!/
         });
-    })
-    btnVolve.forEach(function (itenss){
+    })*/
+   /* btnVolve.forEach(function (itenss){
         itenss.addEventListener('click', function (){
             personajes.forEach(function (ite){
                 ite.classList.remove('hidden');
                 personajesDiv.classList.add('hidden')
             })
         })
-    })
+    })*/
     btnFavorito.forEach(function (item){
         /*console.log('este es mi item: ', item);*/
         item.addEventListener('click', function (){
@@ -120,6 +121,12 @@ function leerPersonajes(data){
                 item.style.color = '#C5C52CFF';
                 estadoFavorito = 1;
                 onSubmit(data);
+                setTimeout(function (){
+                    CONST.estado.innerHTML = '';
+                    CONST.estado.style.backgroundColor = '';
+                }, 2000);
+                CONST.estado.innerHTML = 'Guardado en Favorito';
+                CONST.estado.style.backgroundColor = '#d0e995';
             } else {
 
                 item.style.color = '';
@@ -134,6 +141,12 @@ function leerPersonajes(data){
             if (estado === 0){
                 items.style.color = '#f81224';
                 estado = 1;
+                setTimeout(function (){
+                    CONST.estado.innerHTML = '';
+                    CONST.estado.style.backgroundColor = '';
+                }, 2000);
+                CONST.estado.innerHTML = 'Te gusta!! ';
+                CONST.estado.style.backgroundColor = '#d0e995';
             } else {
                 items.style.color = '';
                 estado = 0;
@@ -154,7 +167,7 @@ export function init(){
     CONST.philip = '';*/
     let btnFavorito = document.querySelectorAll('.btnFavorito');
     btnFavorito.forEach(function (itemns){
-        console.log( itemns.dataset.name);
+        /*console.log( itemns.dataset.name);*/
         itemns.addEventListener('click', onSubmit);
         refreshView();
     })
@@ -169,13 +182,21 @@ export function init(){
 function onSubmit(data){
     /*e.preventDefault();*/
     let appi = data.data.characters.results;
-    /*const valorImput = 'hola mundo';*/
-    console.log('data submit', appi);
-    db.todo.put({appi, _id: String(Date.now())})
-        .then(function (){
-            CONST.input.value = '';
-        })
-        .then(refreshView)
+
+    /*for (let elementos of appi) {
+
+        console.log('elementos: ', elementos.name);
+    }*/
+
+
+        /*const valorImput = 'hola mundo';*/
+        /*console.log('data submit', appi);*/
+        db.todo.put({appi, _id: String(Date.now())})
+            .then(function (){
+                CONST.input.value = '';
+            })
+            .then(refreshView)
+
 }
 export function onClick(e){
     let id;
@@ -189,8 +210,9 @@ export function onClick(e){
 export function refreshView(){
     return db.todo.toArray()
         .then(function (todos){
-            console.log('todos:', todos)
+            console.log('todos:', todos);
             let html = '';
+
             for (let i=0; i < todos.length; i++){
                 html += `<div class="personajes">
                         <div class="divSelect">
