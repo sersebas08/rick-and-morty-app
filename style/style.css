@@ -74,8 +74,15 @@ body {
     justify-content: center;
     margin: 2rem 0.5rem;
 }
-
-.personajesFavoritos{
+.personajes__div {
+    border: 1px solid #a6da2f;
+    background-color: #026874bd;
+    border-radius: 10px;
+    margin: 1rem auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+.personajesFavoritos {
     border: 1px solid #a6da2f;
     background-color: #026874bd;
     border-radius: 10px;
@@ -198,6 +205,11 @@ body {
     line-height: 2;
 }
 .personajes__divUl .uno {
+    font-family: futurama;
+    margin: 0.2rem;
+    color: #a6da2f;
+}
+.btn__uno {
     font-family: futurama;
     margin: 0.2rem;
     color: #a6da2f;
@@ -499,6 +511,7 @@ body {
         justify-content: center;
     }
     .divSelect {
+        width: 100%;
         justify-content: center;
     }
     .img {

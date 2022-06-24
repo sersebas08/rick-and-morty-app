@@ -52,6 +52,7 @@ CONST.btnFavoritos.addEventListener('click', () => {
 
 window.addEventListener('offline', event => {
     CONST.estado.innerHTML = 'Estas navegando sin conexion a la red';
+    CONST.estado.style.position = 'fixed';
     CONST.estado.style.backgroundColor = 'rgb(175 220 40)';
 
 })
@@ -62,6 +63,7 @@ window.addEventListener('online', event => {
         CONST.estado.style.backgroundColor = '';
     }, 4000);
     CONST.estado.innerHTML = 'Estas Conectado ...';
+    CONST.estado.style.position = 'fixed';
     CONST.estado.style.backgroundColor = '#d0e995';
 })
 

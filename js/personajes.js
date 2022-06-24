@@ -62,23 +62,21 @@ function leerPersonajes(data){
                                  </div>
                              </div>
                         </div>
-                        <div class="personajes__div hidden">
+                        <div  class="personajes__div hidden">
                             <picture class="w-9/12 p-2">
                               <source media="(min-width: 751px)" srcset="${appi[i].image}">
                               <source media="(min-width: 380px)" srcset="${appi[i].image}">
                               <img src="${appi[i].image}" class="img " alt="Mi imagen responsive">
                             </picture>
-                            <ul>
-                                <li>Estado</li>
-                                <li>${appi[i].status}</li>
-                                <li>Especie</li>
-                                <li>${appi[i].species}</li>
-                                <li>Nombre</li>
-                                <li>${appi[i].name}</li>
-                                <li>Ciudad</li>
-                                <li>${appi[i].location.name}</li>
-                            </ul>
-                            <button id="btnVolve">Volver</button>
+                            <div class="personajes__div">
+                                <ul class="personajes__divUl">
+                                    <li><span class="uno">Status</span>${appi[i].status}</li>
+                                    <li><span class="uno">Specie</span>${appi[i].species}</li>
+                                    <li><span class="uno">Nombre</span>${appi[i].name}</li>
+                                    <li><span class="uno">Ubicacion</span>${appi[i].location.name}</li>
+                                </ul>
+                            </div>
+                            <button id="btnVolve" class="btn__uno">Volver a Home</button>
                         </div>
                     </div>`;
 
@@ -93,27 +91,28 @@ function leerPersonajes(data){
     let personajes = document.querySelectorAll('.personajes');
     let personajesDiv = document.querySelector('.personajes__div');
     let btnVolve = document.querySelectorAll('#btnVolve');
-   /* btnVerMas.forEach(function (itemns) {
+    btnVerMas.forEach(function (itemns) {
         itemns.addEventListener('click', function (){
             console.log('hola mundo');
             personajes.forEach(function (ite){
                 ite.classList.add('hidden');
-                personajesDiv.classList.remove('hidden')
+                personajesDiv.classList.remove('hidden');
+
             })
 
 
-            /!*CONST.divPersonajes.classList.add('hidden');
-            CONST.divEpisodios.classList.add('hidden');*!/
+            /*CONST.divPersonajes.classList.add('hidden');
+            CONST.divEpisodios.classList.add('hidden');*/
         });
-    })*/
-   /* btnVolve.forEach(function (itenss){
+    })
+    btnVolve.forEach(function (itenss){
         itenss.addEventListener('click', function (){
             personajes.forEach(function (ite){
                 ite.classList.remove('hidden');
                 personajesDiv.classList.add('hidden')
             })
         })
-    })*/
+    })
     btnFavorito.forEach(function (item){
 
         /*console.log('este es mi item: ', item);*/
@@ -128,6 +127,7 @@ function leerPersonajes(data){
                     CONST.estado.style.backgroundColor = '';
                 }, 2000);
                 CONST.estado.innerHTML = 'Guardado en Favorito';
+                CONST.estado.style.position = 'fixed';
                 CONST.estado.style.backgroundColor = '#d0e995';
             } else {
 
@@ -149,6 +149,7 @@ function leerPersonajes(data){
                     CONST.estado.style.backgroundColor = '';
                 }, 1000);
                 CONST.estado.innerHTML = 'Te gusta!! ';
+                CONST.estado.style.position = 'fixed';
                 CONST.estado.style.backgroundColor = '#d0e995';
             } else {
                 items.style.color = '';
@@ -159,6 +160,7 @@ function leerPersonajes(data){
     })
   /*  btn();*/
 }
+
 
 let db;
 

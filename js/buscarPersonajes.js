@@ -36,6 +36,7 @@ CONST.btn.addEventListener('click', (e) => {
         .then(function (data){
             if(!valorImput) {
                 CONST.estado.innerHTML = 'Debes escribir el nombre del persnaje !!';
+                CONST.estado.style.position = 'fixed'
                 CONST.input.style.border = '3px solid #a6da2f';
             } else {
                 setTimeout(function (){
