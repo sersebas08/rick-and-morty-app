@@ -33,7 +33,7 @@ export function buscarPersonajes() {
             return response.json();})
         .then(function (data){
             leerPersonajes(data);
-            console.log('simpsonas data: ', data);
+            /*console.log('simpsonas data: ', data);*/
         })
         .catch(function (err){
             console.log("este es el error", err);})
@@ -41,13 +41,13 @@ export function buscarPersonajes() {
 
 function leerPersonajes(data){
     let appi = data.data.characters.results;
-    console.log('esta es mi appi personajes ', appi);
+   /* console.log('esta es mi appi personajes ', appi);*/
     let images = '';
 
     for (let i = 0; i < appi.length; i++) {
-        images += `<div class="">
+        images += `<div class="divPersonajesHome">
                         <div class="personajes">
-                             <picture class="w-9/12 p-2">
+                             <picture class="w-full p-2">
                                <source media="(min-width: 751px)" srcset="${appi[i].image}">
                                <source media="(min-width: 380px)" srcset="${appi[i].image}">
                                <img src="${appi[i].image}" class="img " alt="Mi imagen responsive">
@@ -115,8 +115,10 @@ function leerPersonajes(data){
         })
     })*/
     btnFavorito.forEach(function (item){
+
         /*console.log('este es mi item: ', item);*/
         item.addEventListener('click', function (){
+
             if (estadoFavorito === 0){
                 item.style.color = '#C5C52CFF';
                 estadoFavorito = 1;
@@ -133,6 +135,7 @@ function leerPersonajes(data){
                 estadoFavorito = 0;
 
             }
+
         });
     })
     btnMegusta.forEach(function (items){
@@ -144,18 +147,16 @@ function leerPersonajes(data){
                 setTimeout(function (){
                     CONST.estado.innerHTML = '';
                     CONST.estado.style.backgroundColor = '';
-                }, 2000);
+                }, 1000);
                 CONST.estado.innerHTML = 'Te gusta!! ';
                 CONST.estado.style.backgroundColor = '#d0e995';
             } else {
                 items.style.color = '';
                 estado = 0;
+
             }
         });
     })
-
-
-
   /*  btn();*/
 }
 
@@ -182,20 +183,21 @@ export function init(){
 function onSubmit(data){
     /*e.preventDefault();*/
     let appi = data.data.characters.results;
-
-    /*for (let elementos of appi) {
-
+   /* let date;
+    for (let elementos of appi) {
         console.log('elementos: ', elementos.name);
+         date = {
+            name: elementos.name
+        }
+        return date;
     }*/
-
-
-        /*const valorImput = 'hola mundo';*/
-        /*console.log('data submit', appi);*/
-        db.todo.put({appi, _id: String(Date.now())})
-            .then(function (){
-                CONST.input.value = '';
-            })
-            .then(refreshView)
+    /*const valorImput = 'hola mundo';*//*
+    console.log('data submit this:', this);*/
+    db.todo.put({appi, _id: String(Date.now())})
+        .then(function (){
+            CONST.input.value = '';
+        })
+        .then(refreshView)
 
 }
 export function onClick(e){
@@ -207,6 +209,7 @@ export function onClick(e){
             .then(refreshView)
     }
 }
+
 export function refreshView(){
     return db.todo.toArray()
         .then(function (todos){
@@ -214,26 +217,27 @@ export function refreshView(){
             let html = '';
 
             for (let i=0; i < todos.length; i++){
-                html += `<div class="personajes">
-                        <div class="divSelect">
-                            <button class="btnFavorito m-2" type="button"><i class="bi bi-star-fill mr-2 perri2"></i></button>
-                            <p class="btnMeGusta m-2"><i class="bi bi-heart-fill mr-2 perri"></i></p>
-                            <h2 class="divSelect__h2"><button id="${todos[i]._id}" class="btn btn-link bi bi-trash"></button></h2>
-                        </div>
-                       <picture class="w-full p-3">
-                          <source media="(min-width: 751px)" srcset="${todos[i].appi[i].image}">
-                          <source media="(min-width: 380px)" srcset="${todos[i].appi[i].image}">
-                          <img src="${todos[i].appi[i].image}" class="img " alt="Mi imagen responsive">
-                        </picture>
-                        <div class="personajes__div">
-                            <ul class="personajes__divUl">
-                                <li class="uno">Nombre</li>
-                                <li>${todos[i].appi[i].name}</li>
-                             
-                            </ul>
-                           
-                        </div>
-                    </div>`;
+                html += `<div class="personajesFavoritos">
+                                <h2 class="divPersonajesFavoritos__h3">${todos[i].appi[i].name}</h2>
+                                <picture class="w-full p-3">
+                                  <source media="(min-width: 751px)" srcset="${todos[i].appi[i].image}">
+                                  <source media="(min-width: 380px)" srcset="${todos[i].appi[i].image}">
+                                  <img src="${todos[i].appi[i].image}" class="img " alt="Mi imagen responsive">
+                                </picture>
+                                <div class="personajes__div">
+                                    <ul class="personajes__divUl">
+                                        <li><span class="uno">Species: </span>${todos[i].appi[i].species}</li>
+                                        <li><span class="uno">Status: </span>${todos[i].appi[i].status}</li>
+                                        <li><span class="uno">Origen: </span>${todos[i].appi[i].origin.name}</li>
+                                        <li><span class="uno">Ubicacion: </span>${todos[i].appi[i].location.name}</li>
+                                    </ul>
+                                </div>
+                                 <div class="divSelectFavoritos">
+                                    <!--<button class="btnFavorito m-2" type="button"><i class="bi bi-star-fill mr-2 perri2"></i></button>-->
+                                    <!--<p class="btnMeGusta m-2"><i class="bi bi-heart-fill mr-2 perri"></i></p>-->
+                                    <h3 class="divSelect__h2"><button id="${todos[i]._id}" class="btn btn-link bi bi-trash"></button>Borrar</h3>
+                                </div>
+                        </div>`;
             }
             CONST.philipVersion.innerHTML = html;
         })

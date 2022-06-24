@@ -18,8 +18,8 @@ export const buscarPersonajesNombre = (personaje) => `query {
 }`
 
 
-CONST.btn.addEventListener('click', () => {
-
+CONST.btn.addEventListener('click', (e) => {
+    e.preventDefault()
     const valorImput = CONST.input.value;
     const options = {
         method: "post",
@@ -34,7 +34,21 @@ CONST.btn.addEventListener('click', () => {
         .then(function(response){
             return response.json();})
         .then(function (data){
-            leerPersonajesNombre(data);
+            if(!valorImput) {
+                CONST.estado.innerHTML = 'Debes escribir el nombre del persnaje !!';
+                CONST.input.style.border = '3px solid #a6da2f';
+            } else {
+                setTimeout(function (){
+                    CONST.estado.innerHTML = '';
+                    CONST.estado.style.backgroundColor = '';
+                    CONST.input.style.border = '';
+                    leerPersonajesNombre(data);
+                }, 1000);
+                CONST.estado.innerHTML = 'Buscando..';
+                CONST.estado.style.backgroundColor = '#d0e995';
+
+            }
+
 
             CONST.input.value = '';
         })
@@ -50,13 +64,14 @@ export function leerPersonajesNombre(json){
 
     for (let i = 0; i < appi.length; i++) {
 
-        pers += `<div class="personajes">
-                        <div class="divSelect">
-                            <button class="btnFavorito m-2" type="button"><i class="bi bi-star-fill mr-2 perri2"></i></button>
-                            <!--<p class="btnMeGusta m-2"><i class="bi bi-heart-fill mr-2 perri"></i></p>-->
+        pers += `<div class="personajesFavoritos">
+                       
+                        <!--<div class="divSelect">
+                            &lt;!&ndash;<button class="btnFavorito m-2" type="button"><i class="bi bi-star-fill mr-2 perri2"></i></button>&ndash;&gt;
+                            &lt;!&ndash;<p class="btnMeGusta m-2"><i class="bi bi-heart-fill mr-2 perri"></i></p>&ndash;&gt;
                             <h2 class="btnFavorito btn btn-link bi bi-star-fill mr-2 perri2"></h2>
                             <h3 class="btnMeGusta btn btn-link bi bi-heart-fill mr-2 perri"></h3>
-                        </div>
+                        </div>-->
                        <picture class="w-full p-3">
                           <source media="(min-width: 751px)" srcset="${appi[i].image}">
                           <source media="(min-width: 380px)" srcset="${appi[i].image}">
@@ -64,16 +79,11 @@ export function leerPersonajesNombre(json){
                         </picture>
                         <div class="personajes__div">
                             <ul class="personajes__divUl">
-                                <li class="uno">Nombre</li>
-                                <li>${appi[i].name}</li>
-                                <li class="uno">Origen</li>
-                                <li>${appi[i].origin.name}</li>
-                                <li class="uno">Especie</li>
-                                <li>${appi[i].species}</li>
-                                <li class="uno">Status</li>
-                                <li>${appi[i].status}</li>
-                                <li class="uno">Planeta</li>
-                                <li>${appi[i].location.name}</li>
+                                <li><span class="uno">Nombre </span>${appi[i].name}</li>
+                                <li><span class="uno">Origen </span>${appi[i].origin.name}</li>
+                                <li><span class="uno">Especie </span>${appi[i].species}</li>
+                                <li><span class="uno">Status </span>${appi[i].status}</li>
+                                <li><span class="uno">Planeta </span>${appi[i].location.name}</li>
                             </ul>
                            
                         </div>

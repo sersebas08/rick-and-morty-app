@@ -15,11 +15,13 @@ const btnPersonajes = document.querySelector('.btnPersonajes');
 const btnEpisodios = document.querySelector('.btnEpisodios');
 const btnFavoritos = document.querySelector('.btnFavoritos');
 /*const url = "https://rickandmortyapi.com/api/character";*/
-const urls = "https://rickandmortyapi.com/api/episode";
+/*const urls = "https://rickandmortyapi.com/api/episode";*/
 const philip = document.querySelector('#philip');
 const philips = document.querySelector('.philip');
 const divVista = document.querySelector('#divVista');
 const philipVersion = document.querySelector('#philipVersion');
+const video = '<iframe width="360" height="115" src="https://www.youtube.com/embed/ykGmIVLaItg" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+
 
 const CONST = {
     divHome,
@@ -41,7 +43,7 @@ const CONST = {
     philips,
     divVista,
     philipVersion,
-    urls
+    video
 
 }
 

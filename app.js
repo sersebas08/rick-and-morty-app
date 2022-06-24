@@ -1,7 +1,7 @@
 
 import CONST from "./js/constant.js";
 /*import {buscarEpisodios} from "./js/episodios.js";*/
-import {leerPersonajesNombre} from "./js/episodios.js";
+import {leerEpisodiosNombre} from "./js/episodios.js";
 import {buscarPersonajes} from "./js/personajes.js";
 import {buscarPersonajesNombre} from "./js/buscarPersonajes.js";
 import {init} from "./js/personajes.js";
@@ -13,7 +13,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
    /* buscarEpisodios();*/
     buscarPersonajesNombre();
     buscarPersonajes();
-    leerPersonajesNombre();
+    leerEpisodiosNombre();
    /* verEpisodios();*/
    /* btn();*/
     init();

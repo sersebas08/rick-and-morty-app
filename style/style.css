@@ -3,6 +3,7 @@
     font-family: futurama;
     src: url(../letras/fr-bold.ttf);
 }
+/* https://coolors.co/00b5cc-a6da2f-85e9f7-cff576-d0e995-#026874*/
 /*@font-face {
     font-family: futuramaTitle;
     src: url(../letras/fr-title.ttf);
@@ -20,6 +21,7 @@ body {
 #estado {
     position: absolute;
     width: 100%;
+    background: #a6da2f;
     /* padding: 0.5rem; */
     display: flex;
     margin: auto;
@@ -29,7 +31,7 @@ body {
     font-family: futurama;
     text-align: center;
     font-size: 2rem;
-    color: #d1f2f6;
+    color: #d0e995;
 }
 #main {
    /* background-color: yellow;*/
@@ -54,10 +56,17 @@ body {
     border-radius: 50%;
     border: 1px solid #a6da2f;
 }
+.imgFavoritos {
+    width: 50%;
+    margin: 1rem auto;
+    border-radius: 50%;
+    border: 1px solid #a6da2f;
+}
 .navbar {
     background: #00b5cc;
     position: fixed;
     width: 100%;
+    padding: 1rem;
 }
 .phil {
     display: flex;
@@ -65,11 +74,39 @@ body {
     justify-content: center;
     margin: 2rem 0.5rem;
 }
-.personajes,
-.personajes__div,
+
+.personajesFavoritos{
+    border: 1px solid #a6da2f;
+    background-color: #026874bd;
+    border-radius: 10px;
+    margin: 1rem auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+.BuscarPersonajes{
+    border: 1px solid #a6da2f;
+    background-color: #026874bd;
+    border-radius: 10px;
+    margin: 1rem auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+.divSelectFavoritos {
+    display: flex;
+    margin: 0.5rem;
+    flex-wrap: wrap;
+}
+.personajes {
+    border: 1px solid #a6da2f;
+    background-color: #026874bd;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 1rem auto;
+}
 .philipVersion {
     border: 1px solid #a6da2f;
-    background-color: #00b5cc75;
+    background-color: #026874bd;
     border-radius: 10px;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -82,11 +119,20 @@ body {
     margin: 0.5rem;
     flex-wrap: wrap;
 }
+.divSelect__h2 {
+    color: #d0e995;
+    padding: 0.5rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: end;
+}
 .divSelect .personaje__h3 {
     font-family: futurama;
     text-align: center;
-    font-size: 1rem;
-    color: #d1f2f6;
+    font-size: .9rem;
+    color: #d0e995;
     display: flex;
     align-items: center;
     width: 100%;
@@ -105,12 +151,13 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-
+    width: 90%;
+    margin: auto;
 }
 .philip__h4 {
     font-family: futurama;
     font-size: 1rem;
-    color: #d1f2f6;
+    color: #d0e995;
 }
 /*.personajes__div {
     display: grid;
@@ -122,37 +169,38 @@ body {
     font-size: 1.5rem;
     font-weight: 700;
 }*/
-.personajes__div ul {
+.personajes__div {
+    width: 100%;
+    padding: 0.5rem;
+ }
+/*.personajes__div ul {
     text-align: center;
     display: grid;
 
     margin-top: 2rem;
-}
-.personajes__div .personajes__divUl {
-    text-align: center;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin: 2rem 1rem 1rem 1rem;
+}*/
 
+.personajes__divUl li {
+    font-size: 1rem;
+    text-align: start;
 }
-.personajes__div .personajes__divUl li {
-    font-size: .8rem;
-}
-.personajes__div ul .liSpecie {
+/*.personajes__div ul .liSpecie {
     margin-top: 2rem;
     font-size: 1.5rem;
     font-weight: 900;
     background: cadetblue;
-}
-.personajes__div ul li {
+}*/
+.personajes__divUl li {
     list-style: none;
-    color: beige;
+    color: #d0e995;
     font-weight: 600;
     font-family: futurama;
+    line-height: 2;
 }
-.personajes__div ul .uno {
+.personajes__divUl .uno {
     font-family: futurama;
     margin: 0.2rem;
+    color: #a6da2f;
 }
 
 .btnPersonajes,
@@ -172,8 +220,36 @@ body {
 /*.divSelect .btnMeGusta:hover {
     font-size: 1.2rem;
 }*/
-
-
+.divPersonajes__h3 {
+    text-align: center;
+    margin: 1rem;
+    color: #d0e995;
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-family: futurama;
+}
+.divPersonajesFavoritos__h3 {
+    text-align: center;
+    margin: 1rem;
+    color: #d0e995;
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-family: futurama;
+    width: 100%;
+}
+.personaje__h4 {
+    width: 100%;
+    font-family: futurama;
+    font-weight: 500;
+    color: #d0e995;
+    margin: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+.personaje__h4 span{
+    font-weight: 800;
+    color: #d0e995;
+}
 
 .divBotones {
     width: 100%;
@@ -194,6 +270,8 @@ body {
 .form__form {
     display: flex;
     justify-content: center;
+    margin: 2rem auto;
+    width: 90%;
 }
 .modalHombre {
     position: fixed;
@@ -233,11 +311,102 @@ body {
     .personajes {
         width: 90%;
     }
+    .img {
+        width: 75%;
+    }
 
 }
 @media (min-width: 501px) and (max-width: 600px){
     .personajes {
-        width: 80%;
+        /*width: 50%;*/
+        display: flex;
+        flex-wrap: wrap;
+        margin: .5rem;
+    }
+    .divPersonajesHome {
+        width: 50%;
+    }
+
+    .personaje__h3 {
+        justify-content: center;
+    }
+    .personaje__h4  {
+       justify-content: center;
+    }
+    .divSelect {
+        justify-content: center;
+    }
+    .img {
+        width: 50%;
+    }
+    /*.philipVersion {
+        width: 50%;
+    }*/
+    body {
+        background-image: url(../img/bg-02.jpg);
+        background-attachment: fixed;
+        background-size: cover;
+    }
+
+}
+@media (min-width: 601px) and (max-width: 700px){
+    .personajes {
+        /*width: 50%;*/
+        display: flex;
+        flex-wrap: wrap;
+        margin: .5rem;
+    }
+    .divPersonajesHome {
+        width: 50%;
+    }
+
+    .personaje__h3 {
+        justify-content: center;
+    }
+    .personaje__h4  {
+      justify-content: center;
+    }
+    .divSelect {
+        justify-content: center;
+    }
+    .img {
+        width: 50%;
+    }
+    .personajesFavoritos {
+        width: 47%;
+    }
+
+    body {
+        background-image: url(../img/bg-02.jpg);
+        background-attachment: fixed;
+        background-size: cover;
+    }
+}
+@media (min-width: 701px) and (max-width: 800px){
+    .personajes {
+        /*width: 50%;*/
+        display: flex;
+        flex-wrap: wrap;
+        margin: .5rem;
+    }
+    .divPersonajesHome {
+        width: 30%;
+    }
+
+    .personaje__h3 {
+        justify-content: center;
+    }
+    .personaje__h4  {
+       justify-content: center;
+    }
+    .divSelect {
+        justify-content: center;
+    }
+    .img {
+        width: 50%;
+    }
+    .personajesFavoritos {
+        width: 47%;
     }
     body {
         background-image: url(../img/bg-02.jpg);
@@ -245,10 +414,98 @@ body {
         background-size: cover;
     }
 }
-
-@media (min-width: 1201px) {
+@media (min-width: 801px) and (max-width: 900px){
     .personajes {
-        width: 20%;
+        /*width: 50%;*/
+        display: flex;
+        flex-wrap: wrap;
+        margin: .5rem;
+    }
+    .divPersonajesHome {
+        width: 30%;
+    }
+
+    .personaje__h3 {
+        justify-content: center;
+    }
+    .personaje__h4  {
+        justify-content: center;
+    }
+    .divSelect {
+        justify-content: center;
+    }
+    .img {
+        width: 50%;
+    }
+    .personajesFavoritos {
+        width: 45%;
+    }
+    body {
+        background-image: url(../img/bg-02.jpg);
+        background-attachment: fixed;
+        background-size: cover;
+    }
+}
+@media (min-width: 901px) and (max-width: 1000px){
+    .personajes {
+        /*width: 50%;*/
+        display: flex;
+        flex-wrap: wrap;
+        margin: .5rem;
+    }
+    .divPersonajesHome {
+        width: 30%;
+    }
+
+    .personaje__h3 {
+        justify-content: center;
+    }
+    .personaje__h4  {
+        justify-content: center;
+    }
+    .divSelect {
+        justify-content: center;
+    }
+    .img {
+        width: 50%;
+    }
+    .personajesFavoritos {
+        width: 30%;
+    }
+    body {
+        background-image: url(../img/bg-02.jpg);
+        background-attachment: fixed;
+        background-size: cover;
+    }
+}
+@media (min-width: 1001px) {
+    .personajes {
+        /*width: 50%;*/
+        display: flex;
+        flex-wrap: wrap;
+        margin: .5rem;
+    }
+    .divPersonajesHome {
+        width: 25%;
+    }
+    .divHome {
+        width: 90%;
+        margin: auto;
+    }
+    .personaje__h3 {
+        justify-content: center;
+    }
+    .personaje__h4  {
+        justify-content: center;
+    }
+    .divSelect {
+        justify-content: center;
+    }
+    .img {
+        width: 50%;
+    }
+    .personajesFavoritos {
+        width: 30%;
     }
     body {
         background-image: url(../img/bg-02.jpg);
