@@ -1,21 +1,15 @@
 
 import CONST from "./js/constant.js";
-/*import {buscarEpisodios} from "./js/episodios.js";*/
-import {leerEpisodiosNombre} from "./js/episodios.js";
+import {buscarEpisodiosNombre} from "./js/episodios.js";
 import {buscarPersonajes} from "./js/personajes.js";
 import {buscarPersonajesNombre} from "./js/buscarPersonajes.js";
-import {init} from "./js/personajes.js";
-/*import {verEpisodios} from "./js/episodios.js";*/
-/*import {btn} from "./js/episodios.js";*/
+import {init} from "./js/dexie.js";
 
 
 window.addEventListener('DOMContentLoaded', (e) => {
-   /* buscarEpisodios();*/
     buscarPersonajesNombre();
     buscarPersonajes();
-    leerEpisodiosNombre();
-   /* verEpisodios();*/
-   /* btn();*/
+    buscarEpisodiosNombre();
     init();
 });
 
@@ -46,7 +40,6 @@ CONST.btnFavoritos.addEventListener('click', () => {
     CONST.divPersonajes.classList.add('hidden');
     CONST.divHome.classList.add('hidden');
     CONST.philips.classList.remove('hidden')
-    /*CONST.divHome.classList.add('hidden');*/
 })
 
 
@@ -71,33 +64,5 @@ if (!navigator.onLine){
     console.log('Sin conexion');
 }
 
-
-
-// ventana modal
-/*function modal(){
-    console.log('hasta llego: ' );
-
-    /!* console.log('esta es la data de cafeteria: ' , );*!/
-    ventanaHombres.classList.add("modalHombre");
-    ventanaHombres.classList.remove("hidden");
-
-
-    let a = document.createElement('a');
-    a.href = '#';
-    a.id = 'modal'
-    a.innerHTML = 'X';
-    a.onclick = function () {
-
-        ventanaHombres.classList.add("hidden");
-        ventanaHombres.classList.remove("modalHombre");
-        return false;
-    }
-    ventanaHombres.appendChild(a);
-    console.log('hola mundo')
-
-}
-let ventanaHombres = document.querySelector('#ventanaHombres');
-let button = document.querySelector('.button');
-button.onclick = modal;*/
 
 

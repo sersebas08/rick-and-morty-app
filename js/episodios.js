@@ -1,20 +1,20 @@
 import CONST from "./constant.js";
 
-/*export const buscarEpisodiosNombre = (personaje) => `query {
+export const buscarEpisodiosNombre = (personaje) => `query {
  episodes( filter: { name: "${personaje}" }) {
-    results {
-      name
-      
+     results {
+      name 
+      episode
+    
     }
   }
-}`*/
-
+}`
 
 CONST.btns.addEventListener('click', (e) => {
     e.preventDefault();
 
     const valorImputs = CONST.inputs.value;
-    /*const options = {
+    const options = {
         method: "post",
         headers: {
             "Content-Type": "application/json"
@@ -22,48 +22,48 @@ CONST.btns.addEventListener('click', (e) => {
         body: JSON.stringify({
             query: buscarEpisodiosNombre(valorImputs)
         })
-    }*/
-    fetch(`https://rickandmortyapi.com/api/episode`)
+    }
+    fetch(`https://rickandmortyapi.com/graphql?query=${buscarEpisodiosNombre(valorImputs)}`, options)
         .then(function(response){
             return response.json();})
         .then(function (data){
-            leerEpisodiosNombre(data);
-            console.log('console: ', valorImputs.value)
-            /*if(!valorImputs) {
+            if(!valorImputs) {
                 CONST.estado.innerHTML = 'Debes escribir el nombre del persnaje !!';
-                CONST.input.style.border = '3px solid #a6da2f';
+                CONST.inputs.style.border = '3px solid #a6da2f';
             } else {
                 setTimeout(function (){
                     CONST.estado.innerHTML = '';
                     CONST.estado.style.backgroundColor = '';
-                    CONST.input.style.border = '';
+                    CONST.inputs.style.border = '';
                     leerEpisodiosNombre(data);
                 }, 1000);
                 CONST.estado.innerHTML = 'Buscando..';
                 CONST.estado.style.backgroundColor = '#d0e995';
-
-            }*/
+            }
+            CONST.inputs.value = '';
         })
         .catch(function (err){
             console.log("este es el error", err);})
 });
 export function leerEpisodiosNombre(json){
-    console.log('hola mundo episodios', json)
-    /*let appi = json.data.episodes.results;*/
-   /* let video = '';
+    let pers = '';
+    let app = json.data.episodes.results;
+        for (let i = 0; i < app.length; i++) {
 
-    for (let i = 0; i < json.length; i++) {
-        console.log('recorro la data: ', json);
-
-
-       /!* console.log('episodios: ', json.results.url);*!/
-        /!*  console.log('recorro la data: ', data[i].name)*!/
-        video += `<div class="personajes">
-                         
-                        <h2>hola mundo</h2>
+        pers += `<div class="personajesFavoritos">
+                    
+                        <div class="personajes__div">
+                            <ul class="personajes__divUl">
+                                <li><span class="uno">Nombre </span>${app[i].name}</li>
+                                <li><span class="uno">Episodios </span>${app[i].episode}</li>
+                                
+                            </ul>
+                           
+                        </div>
                     </div>`;
 
+
     }
-    CONST.divEpisodios.innerHTML = `<div class="phil">${video}</div>`;*/
+    CONST.vistaEpisodios.innerHTML = `<div class="phil">${pers}</div>`;
 
 }
