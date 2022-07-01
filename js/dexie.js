@@ -1,4 +1,4 @@
-// db
+
 import CONST from "./constant.js";
 
 let db;
@@ -16,9 +16,9 @@ export function init(){
         .then(refreshView);
 }
 
-export function onSubmit(data){
-    let appi = data.data.characters.results;
-    db.todo.put({appi, _id: String(Date.now())})
+export function onSubmit(it){
+    let ite = it;
+    db.todo.put({ite, _id: String(Date.now())})
         .then(function (){
             CONST.input.value = '';
         })
@@ -39,21 +39,20 @@ export function refreshView(){
     return db.todo.toArray()
         .then(function (todos){
             let html = '';
-
             for (let i=0; i < todos.length; i++){
                 html += `<div class="personajesFavoritos">
-                                <h2 class="divPersonajesFavoritos__h3">${todos[i].appi[i].name}</h2>
+                                <h2 class="divPersonajesFavoritos__h3">${todos[i].ite.name}</h2>
                                 <picture class="w-full p-3">
-                                  <source media="(min-width: 751px)" srcset="${todos[i].appi[i].image}">
-                                  <source media="(min-width: 380px)" srcset="${todos[i].appi[i].image}">
-                                  <img src="${todos[i].appi[i].image}" class="img " alt="Mi imagen responsive">
+                                  <source media="(min-width: 751px)" srcset="${todos[i].ite.image}">
+                                  <source media="(min-width: 380px)" srcset="${todos[i].ite.image}">
+                                  <img src="${todos[i].ite.image}" class="img " alt="Mi imagen responsive">
                                 </picture>
                                 <div class="personajes__div">
                                     <ul class="personajes__divUl">
-                                        <li><span class="uno">Species: </span>${todos[i].appi[i].species}</li>
-                                        <li><span class="uno">Status: </span>${todos[i].appi[i].status}</li>
-                                        <li><span class="uno">Origen: </span>${todos[i].appi[i].origin.name}</li>
-                                        <li><span class="uno">Ubicacion: </span>${todos[i].appi[i].location.name}</li>
+                                        <li><span class="uno">Species: </span>${todos[i].ite.specie}</li>
+                                        <li><span class="uno">Status: </span>${todos[i].ite.status}</li>
+                                        <li><span class="uno">Origen: </span>${todos[i].ite.origin}</li>
+                                        <li><span class="uno">Ubicacion: </span>${todos[i].ite.location}</li>
                                     </ul>
                                 </div>
                                  <div class="divSelectFavoritos">

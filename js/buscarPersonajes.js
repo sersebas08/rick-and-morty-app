@@ -1,4 +1,5 @@
 import CONST from "./constant.js";
+import {onSubmit} from "./dexie.js";
 
 export const buscarPersonajesNombre = (personaje) => `query {
  characters( filter: { name: "${personaje}" }) {
@@ -60,7 +61,17 @@ export function leerPersonajesNombre(json){
     for (let i = 0; i < appi.length; i++) {
 
         pers += `<div class="personajesFavoritos">
-                      
+                       <div class="divSelec__divBotones">
+                            <button class="btnFavoritoPersonajes m-2"  
+                                data-name="${appi[i].name}" 
+                                data-id="${appi[i].id}"
+                                data-img="${appi[i].image}"
+                                data-status="${appi[i].status}"
+                                data-specie="${appi[i].species}"
+                                data-location="${appi[i].location.name}"
+                                data-origin="${appi[i].origin.name}"
+                            ><i class="bi bi-star-fill mr-2 perri2"></i></button>
+                       </div>             
                        <picture class="w-full p-3">
                           <source media="(min-width: 751px)" srcset="${appi[i].image}">
                           <source media="(min-width: 380px)" srcset="${appi[i].image}">
@@ -81,5 +92,34 @@ export function leerPersonajesNombre(json){
 
     }
     CONST.divBusqueda.innerHTML = `<div class="phil">${pers}</div>`;
-
+    let btnFavoritoPersonajes = document.querySelectorAll('.btnFavoritoPersonajes');
+    let estadoFavorito = 0;
+    btnFavoritoPersonajes.forEach(function (item){
+        item.addEventListener('click', function (){
+            const it = {
+                id: this.dataset.id,
+                name: this.dataset.name,
+                image: this.dataset.img,
+                status: this.dataset.status,
+                specie: this.dataset.specie,
+                location: this.dataset.location,
+                origin: this.dataset.origin
+            };
+            if (estadoFavorito === 0){
+                item.style.color = '#a6da2f';
+                estadoFavorito = 1;
+                onSubmit(it);
+                setTimeout(function (){
+                    CONST.estado.innerHTML = '';
+                    CONST.estado.style.backgroundColor = '';
+                }, 2000);
+                CONST.estado.innerHTML = `${this.dataset.name} ! Guardado en favoritos`;
+                CONST.estado.style.position = 'fixed';
+                CONST.estado.style.backgroundColor = '#d0e995';
+            } else {
+                item.style.color = '';
+                estadoFavorito = 0;
+            }
+        });
+    })
 }

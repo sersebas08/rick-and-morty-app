@@ -1,6 +1,6 @@
 import CONST from "./constant.js";
-import {onSubmit} from "./dexie.js";
-
+import {onSubmit, onClick} from "./dexie.js";
+import {modal} from "./modal.js";
 
 export const buscarPersonajesNombres = () => `query {
  characters( filter: { name: "" }) {
@@ -9,7 +9,9 @@ export const buscarPersonajesNombres = () => `query {
       name
       image
       species
+      type
       status
+      gender
       origin{
         name
       }
@@ -56,28 +58,29 @@ function leerPersonajes(data){
                                  <h3 class="personaje__h3">${appi[i].name}</h3>
                                  <h4 class="personaje__h4">${appi[i].species}</h4>
                                  <div class="divSelec__divBotones">
-                                    <p class="btnFavoritoHome m-2"><i class="bi bi-star-fill mr-2 perri2"></i></p>
-                                    <p class="btnMeGusta m-2"><i class="bi bi-heart-fill mr-2 perri"></i></p>
-                                    <p class="btnVerMas m-2"><i class="bi bi-eye-fill mr-2 perri3"></i></p>
+                                    <button class="btnFavoritoHome m-2"  
+                                        data-name="${appi[i].name}" 
+                                        data-id="${appi[i].id}"
+                                        data-img="${appi[i].image}"
+                                        data-status="${appi[i].status}"
+                                        data-specie="${appi[i].species}"
+                                        data-location="${appi[i].location.name}"
+                                        data-origin="${appi[i].origin.name}"
+                                    ><i class="bi bi-star-fill mr-2 perri2"></i></button>
+                                    <button data-name="${appi[i].name}" class="btnMeGusta m-2"><i class="bi bi-heart-fill mr-2 perri"></i></button>
+                                    <button title="Ver Mas"class="btnVerMas m-2" data-name="${appi[i].name}" 
+                                        data-id="${appi[i].id}"
+                                        data-img="${appi[i].image}"
+                                        data-status="${appi[i].status}"
+                                        data-specie="${appi[i].species}"
+                                        data-gender="${appi[i].gender}"
+                                        data-type="${appi[i].type}"
+                                        data-location="${appi[i].location.name}"
+                                        data-origin="${appi[i].origin.name}"><i class="bi bi-eye-fill mr-2 perri3"></i></button>
                                  </div>
                              </div>
                         </div>
-                        <div  class="personajes__div monoDiv hidden">
-                            <picture class="w-9/12 p-2">
-                              <source media="(min-width: 751px)" srcset="${appi[i].image}">
-                              <source media="(min-width: 380px)" srcset="${appi[i].image}">
-                              <img src="${appi[i].image}" class="img " alt="Mi imagen responsive">
-                            </picture>
-                            <div class="personajes__div">
-                                <ul class="personajes__divUl">
-                                    <li><span class="uno">Status</span>${appi[i].status}</li>
-                                    <li><span class="uno">Specie</span>${appi[i].species}</li>
-                                    <li><span class="uno">Nombre</span>${appi[i].name}</li>
-                                    <li><span class="uno">Ubicacion</span>${appi[i].location.name}</li>
-                                </ul>
-                            </div>
-                            <button id="btnVolve" class="btn__uno">Volver a Home</button>
-                        </div>
+                        
                     </div>`;
 
     }
@@ -92,11 +95,20 @@ function leerPersonajes(data){
     let personajesDiv = document.querySelector('.personajes__div');
     let btnVolve = document.querySelectorAll('#btnVolve');
     btnVerMas.forEach(function (itemns) {
+
         itemns.addEventListener('click', function (){
-            personajes.forEach(function (ite){
-                ite.classList.add('hidden');
-                personajesDiv.classList.remove('hidden');
-            })
+            const iteral = {
+                id: this.dataset.id,
+                name: this.dataset.name,
+                image: this.dataset.img,
+                status: this.dataset.status,
+                specie: this.dataset.specie,
+                gender: this.dataset.gender,
+                type: this.dataset.type,
+                location: this.dataset.location,
+                origin: this.dataset.origin
+            };
+            modal(iteral);
         });
     })
     btnVolve.forEach(function (itenss){
@@ -109,15 +121,24 @@ function leerPersonajes(data){
     })
     btnFavoritoHome.forEach(function (item){
         item.addEventListener('click', function (){
+            const it = {
+                id: this.dataset.id,
+                name: this.dataset.name,
+                image: this.dataset.img,
+                status: this.dataset.status,
+                specie: this.dataset.specie,
+                location: this.dataset.location,
+                origin: this.dataset.origin
+            };
             if (estadoFavorito === 0){
                 item.style.color = '#C5C52CFF';
                 estadoFavorito = 1;
-                onSubmit(data);
+                onSubmit(it);
                 setTimeout(function (){
                     CONST.estado.innerHTML = '';
                     CONST.estado.style.backgroundColor = '';
                 }, 2000);
-                CONST.estado.innerHTML = 'Guardado en Favorito';
+                CONST.estado.innerHTML = `${this.dataset.name} ! Guardado en favoritos`;
                 CONST.estado.style.position = 'fixed';
                 CONST.estado.style.backgroundColor = '#d0e995';
             } else {
@@ -135,7 +156,7 @@ function leerPersonajes(data){
                     CONST.estado.innerHTML = '';
                     CONST.estado.style.backgroundColor = '';
                 }, 1000);
-                CONST.estado.innerHTML = 'Te gusta!! ';
+                CONST.estado.innerHTML = `${this.dataset.name} ! Te gusta`;
                 CONST.estado.style.position = 'fixed';
                 CONST.estado.style.backgroundColor = '#d0e995';
             } else {
@@ -145,6 +166,5 @@ function leerPersonajes(data){
         });
     })
 }
-
 
 

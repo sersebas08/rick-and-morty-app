@@ -2,11 +2,12 @@ import CONST from "./constant.js";
 
 export const buscarEpisodiosNombre = (personaje) => `query {
  episodes( filter: { name: "${personaje}" }) {
-     results {
-      name 
-      episode
-    
-    }
+     results{
+          name
+          id
+          episode
+          air_date
+        }
   }
 }`
 
@@ -56,12 +57,12 @@ export function leerEpisodiosNombre(json){
                             <ul class="personajes__divUl">
                                 <li><span class="uno">Nombre </span>${app[i].name}</li>
                                 <li><span class="uno">Episodios </span>${app[i].episode}</li>
+                                <li><span class="uno">Al aire </span>${app[i].air_date}</li>
                                 
                             </ul>
                            
                         </div>
                     </div>`;
-
 
     }
     CONST.vistaEpisodios.innerHTML = `<div class="phil">${pers}</div>`;
