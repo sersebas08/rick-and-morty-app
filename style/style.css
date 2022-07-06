@@ -50,6 +50,7 @@ body {
     margin: 8rem 1rem 1rem 1rem;
 
 }
+
 .img {
     width: 100%;
     margin: auto;
@@ -544,6 +545,17 @@ body {
     }
     .img {
         width: 50%;
+    }
+    .divPersonajes__vid {
+        display: flex;
+        flex-wrap: wrap;
+
+    }
+    .divPersonajes__video {
+        width: 25%;
+        display: flex;
+        justify-content: center;
+        margin: 4rem auto;
     }
     .personajesFavoritos {
         width: 30%;
